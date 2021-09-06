@@ -10,7 +10,7 @@ public class CalculatorIF extends HttpServlet {
 		String name;
 		String sal,saltype,olds,nenkintype,bonus1_a,bonus2_a,bonus1,bonus2,jobtype,lyearincome,hoken_type,hoken_other;
 		
-		KokuhoResult kokuhor;
+		KokuhoResult kokuhor = new KokuhoResult();
 		
 		name = req.getParameter("name");
 		sal = req.getParameter("sal");
@@ -28,7 +28,7 @@ public class CalculatorIF extends HttpServlet {
 		
 		long saltemp;
 		long year_sal;
-		long month_sal;
+		long month_sal = 0;
 		saltemp = Long.parseLong(sal);
 		if(saltype.equals("month")){
 			month_sal = saltemp;
@@ -41,16 +41,23 @@ public class CalculatorIF extends HttpServlet {
 			
 		}
 		int old = Integer.parseInt(olds);
-		long other_insure;
+		long other_insure = 0;
 		
 		if(hoken_type.equals("kokumin"))
 		kokuhor = KokuhoCalc.calcKokuho(Long.parseLong(lyearincome),old);
 		else
 		other_insure = Long.parseLong(hoken_other);
 		
-		
-		
-		
+		NenkinCalc nenkinc = new NenkinCalc();
+		nenkinc.setType(nenkintype);
+		nenkinc.setIncome(Long.parseLong(lyearincome));
+		long nenkin = nenkinc.calcNenkin();
+		KoyoHoken kyh = new KoyoHoken();
+		kyh.setGyomuType(jobtype);
+		kyh.setIncome(month_sal);
+		long kyhinspay =kyh.calcInsuranse();
+		long totalpay = kokuhor.getTotal() + other_insure + nenkin+ kyhinspay;
+		long juminzei = 4000;
 		
 		
 		

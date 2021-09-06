@@ -24,7 +24,7 @@
 雇用種別
 <input type="radio" name="job_type" value="ippan" checked> 国民年金 &nbsp;
 <input type="radio" name="job_type" value="nrsss" > 農林水産業、清酒製造の事業＊ &nbsp;
-<input type="radio" name="job_type" value="constr"> 建設業<br />
+<input type="radio" name="job_type" value="const"> 建設業<br />
 ＊園芸サービス、牛馬の育成、酪農、養鶏、養豚、内水面養殖および特定の船員を雇用する
 <br />事業については一般の事業の率が適用されます。
 <br /><br /><br />
