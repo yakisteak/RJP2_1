@@ -1,4 +1,4 @@
-package bean;
+package i2dk.bean;
 
 public class UserBean {
     private String name;

@@ -1,5 +1,7 @@
+package i2dk; 
+
 import java.io.IOException;
-import bean.UserBean;
+import i2dk.bean.UserBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
